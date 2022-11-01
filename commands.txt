@@ -1,0 +1,18 @@
+git init
+git remote add origin <github-repo-link>
+git branch -M main
+
+
+
+# Using DVC
+dvc init
+# To start tracking a file or directory
+dvc add data/data.csv
+
+dvc remote add -d storage s3://mlopsdvc170100035/dvcstore
+
+git add .dvc/config
+git commit -m "Configure remote storage"
+
+dvc push
+git push origin main
